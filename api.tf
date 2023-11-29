@@ -15,3 +15,13 @@ resource "aws_appsync_graphql_api" "this" {
 
   tags = local.tags
 }
+
+resource "aws_appsync_datasource" "api" {
+  api_id = aws_appsync_graphql_api.this.id
+  name = local.resource_name
+  type = "HTTP"
+
+  http_config {
+    endpoint = local.api_endpoint
+  }
+}
