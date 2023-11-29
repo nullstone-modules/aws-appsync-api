@@ -12,4 +12,6 @@ resource "aws_appsync_graphql_api" "this" {
     cloudwatch_logs_role_arn = aws_iam_role.logs.arn
     field_log_level          = var.log_level
   }
+
+  tags = local.tags
 }
