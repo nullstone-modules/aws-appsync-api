@@ -1,0 +1,13 @@
+org_name: nullstone
+name: aws-appsync-api
+friendly_name: AppSync Graphql API
+description: Creates a graphql api in AWS AppSync
+category: datastore
+subcategory: ""
+provider_types:
+    - aws
+platform: graphql
+subplatform: ""
+type: ""
+appCategories: []
+is_public: true
