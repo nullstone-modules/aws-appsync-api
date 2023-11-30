@@ -18,8 +18,8 @@ resource "aws_appsync_graphql_api" "this" {
 
 resource "aws_appsync_datasource" "api" {
   api_id = aws_appsync_graphql_api.this.id
-  name = "api_gateway_${random_string.resource_suffix.result}"
-  type = "HTTP"
+  name   = "api_gateway_${random_string.resource_suffix.result}"
+  type   = "HTTP"
 
   http_config {
     endpoint = local.api_endpoint
