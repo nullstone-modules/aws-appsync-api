@@ -1,3 +1,8 @@
+resource "aws_iam_role" "logs" {
+  name               = local.resource_name
+  assume_role_policy = data.aws_iam_policy_document.assume_role.json
+}
+
 data "aws_iam_policy_document" "assume_role" {
   statement {
     effect = "Allow"
@@ -11,12 +16,7 @@ data "aws_iam_policy_document" "assume_role" {
   }
 }
 
-resource "aws_iam_role" "logs" {
-  name               = "example"
-  assume_role_policy = data.aws_iam_policy_document.assume_role.json
-}
-
-resource "aws_iam_role_policy_attachment" "example" {
+resource "aws_iam_role_policy_attachment" "push-to-logs" {
   policy_arn = "arn:aws:iam::aws:policy/service-role/AWSAppSyncPushToCloudWatchLogs"
   role       = aws_iam_role.logs.name
 }
